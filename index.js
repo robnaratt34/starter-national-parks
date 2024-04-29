@@ -29,3 +29,12 @@ const newElement = document.createElement("div");
 newElement.innerText = `${numParks} exciting parks to visit!`;
 newElement.classList.add("header-statement");
 header.appendChild(newElement);
+
+//Adding event listeners
+const allBtns = document.querySelectorAll(".rate-button")
+allBtns.forEach((btn)=>{
+    btn.addEventListener("click", (event)=>{
+        const park = event.target.parentNode;
+        park.style.backgroundColor= "#c8e6c9";
+    })
+})
