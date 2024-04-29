@@ -9,11 +9,16 @@ for (let desc of descriptions.values()){
     desc.innerHTML = content
 }
 
-//Changes the style using the style property
+/*Changes the style using the style property or
+Adds and then removes a style use the classList property*/
 const ratings = document.querySelectorAll(".rating-display .value");
 for (let rating of ratings){
     let ratingValue = parseFloat(rating.innerText);
     if (ratingValue>4.7){
-        rating.style.fontWeight = "bold";
+        //rating.style.fontWeight = "bold";
+        rating.classList.add("high-rating");
+        rating.classList.remove("value");
     }
 }
+
+
