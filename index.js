@@ -21,4 +21,11 @@ for (let rating of ratings){
     }
 }
 
-
+//Creating a new DOM element
+const parks = document.querySelectorAll(".park-display");
+const header = document.querySelector("header");
+const numParks = parks.length;
+const newElement = document.createElement("div");
+newElement.innerText = `${numParks} exciting parks to visit!`;
+newElement.classList.add("header-statement");
+header.appendChild(newElement);
