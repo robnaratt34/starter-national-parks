@@ -38,3 +38,49 @@ allBtns.forEach((btn)=>{
         park.style.backgroundColor= "#c8e6c9";
     })
 })
+
+//Sorting the parks
+/*Long event Handler
+const nameSorter = document.querySelector("#name-sorter")
+nameSorter.addEventListener("click", (event)=>{
+    event.preventDefault();
+    const main = document.querySelector("main");
+    const parks = main.querySelectorAll(".park-display");
+    main.innerHTML="";
+    const parksArray = Array.from(parks);
+    parksArray.sort((parkA, parkB)=>{
+        const parkAName = parkA.querySelector("h2").innerText;
+        const parkBName = parkB.querySelector("h2").innerText;
+        parkAName<parkBName? -1:1
+    });
+    parksArray.forEach((park)=>{
+        main.appendChild(park);
+    })
+})
+*/
+//Shorter Event Handler by breaking into functions
+const sortByName = (parkA,parkB) =>{
+    const parkAName = parkA.querySelector("h2").innerText;
+        const parkBName = parkB.querySelector("h2").innerText;
+        parkAName<parkBName? -1:1
+}
+
+const nameSorterClickHandler = (event)=>{
+    event.preventDefault();
+    const main = document.querySelector("main");
+    const parks = main.querySelectorAll(".park-display");
+    main.innerHTML="";
+    const parksArray = Array.from(parks);
+    parksArray.sort(sortByName);
+    parksArray.forEach((park)=>{
+        main.appendChild(park);
+    })
+}
+//Put event handler functions into DOMContentLoaded
+const main=()=>{
+    const nameSorter = document.querySelector("#name-sorter");
+    nameSorter.addEventListener("click", nameSorterClickHandler);
+}
+
+//add event listener for DOMContentLoaded
+window.addEventListener("DOMContentLoaded", main);
